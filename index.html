@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./assets/images/logo-favicon.png" type="image/x-icon">
+    <title>Crossing the Suez Canal - The Game!</title>
+</head>
+<body>
+     <!--PAGINA INICIAL-->
+     <div class="game-intro" id="intro" style= "display: block">
+        <img src="./assets/images/LABEL.png" alt="introduction" class="intro" > 
+        <img id="play" src="./assets/images/start-button.png">  
+      </div>
+    
+     <!--CANVAS-->
+      <div id ="board" style= "display: none">
+        <div class="buttons">
+          <button id="counter" class="counter">00</button>
+        </div>
+        <canvas id="canvas" width="500" height="600"></canvas>
+      </div>
+
+      <!--PAGINA DE GAME OVER-->
+    <div id="game-over" style= "display: none">
+        <img class="failed" src="./assets/images/game-over.png">
+        <br>
+        <a href="/Crossing the Suez Canal - The Game!/">NAVIGATE AGAIN</a>
+    </div>
+
+
+
+
+    <script type="text/javascript" src="index1.js"></script>
+
+</body>
+</html>

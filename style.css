@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+
+*{
+  margin: 0;
+  padding: 0;     
+}
+
+body{
+background-image: url(./assets/images/initial-bg2.jpg);
+background-position: 0 0;
+background-size: cover;
+background-repeat: no-repeat;
+
+}
+
+.intro {
+    position: absolute;
+    left: 50%;
+    margin-left: -250px;
+    height: 500px;
+  }
+
+
+#play {
+    cursor: pointer;
+    position: absolute;
+    left: 47%;
+    margin-left: -52px;
+    top: 75%;
+    height: 100px;
+    transition: 0.2s ease-in-out;
+  }
+
+
+  #canvas {
+    position: absolute;
+    top: 15%;
+    left: 55%;
+    margin-left: -300px;
+  }
+
+
+  #game-over a {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    transition: 0.2s ease-in-out;
+  }
+  
+  #game-over a:hover {
+    color: rgb(59, 7, 204);
+  }
+
+  #game-over {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 15%;
+    left: 50%;
+    margin-left: -240px;
+  }
+
+  #win {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 10%;
+    left: 50%;
+    margin-left: -200px;
+  }
+  
+  #win a {
+    font-family: "Open Sans", sans-serif;
+    font-size: 10px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+  }
+  
+  #win img {
+    height: 400px;
+  }
+  
+  #board button {
+    font-family: "Open Sans", sans-serif;
+    height: 30px;
+    width: 60px;
+    text-decoration: none;
+    padding: 3px 20px;
+    border-style: none;
+    border-radius: 15px;
+  }
+  
+  
+  
+  .vaccin {
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    height: 30px;
+  }
+  
+  #months {
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    margin-left: -120px;
+  }
+  
+  .counter {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    margin-left: 20px;
+  }
