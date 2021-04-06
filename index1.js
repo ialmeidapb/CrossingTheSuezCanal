@@ -40,12 +40,28 @@ hitAudio.volume = 0.2;
 
 
 class Component {
-    constructor(x, y, width, height, speed) {
+    constructor(x, y, width, height) {
       this.x = x;
       this.y = y;
       this.width = width;
       this.height = height;
-      this.speed = speed;
+      // this.speed = speed;
+      this.speedX=0;
+      this.speedY=0;
+    }
+
+    updatePosition() {
+      this.x += this.speedX;
+  
+      if (this.x <= 40) {   //limites do canal
+        this.x = 40;
+      }
+  
+      if (this.x >= canvas.width-90) {
+        this.x = canvas.width - 90;
+      }
+  
+      this.y += this.speedY;
     }
   
     left() {
@@ -75,6 +91,25 @@ class Component {
       return condition;
     }
   }
+
+  class BackgroundImage extends Component {
+    constructor(x, y, width, height, img) {
+      super(x, y, width, height, img);
+      this.speedY = 3;
+    }
+  
+    updatePosition() {
+      this.y += this.speedY;
+      this.y %= canvas.height;
+    }
+  
+    draw() {
+      ctx.drawImage(this.img, 0, this.y, this.width, this.height);
+      ctx.drawImage(this.img, 0, this.y - canvas.height, this.width, this.height);
+    }
+  }
+  
+
 
   class SandBank extends Component {
     move() {
@@ -109,7 +144,7 @@ class Component {
   
     updateGame = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#1C212E";
+      ctx.fillStyle = "#0099ff";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(
         canvasBackground,
@@ -167,7 +202,7 @@ class Component {
       if (this.frames % 80 === 0) {
         let y = 0;
   
-        let minX = 5;
+        let minX = 200;
         let maxX = canvas.width - 30;
         let x = Math.floor(Math.random() * (maxX - minX + 1) + minX);
   
@@ -230,21 +265,22 @@ class Component {
 
 class Player extends Component {
     move() {
-      this.x += this.speed;
+      this.x += this.speedX;
   
-      if (this.x <= 0) {
-        this.x = 0;
+      if (this.x <= 40) {
+        this.x = 40;
       }
   
       if (this.x >= canvas.width - 80) {
         this.x = canvas.width - 80;
       }
+      this.y += this.speedY;
     }
   
     draw() {
       ctx.imageSmoothingQuality = "high";
       ctx.imageSmoothingEnabled = true;
-      ctx.drawImage(caracter, this.x, this.y, 40, 180);
+      ctx.drawImage(caracter, 220, 410, 40, 180);
     }
   }
   
@@ -273,17 +309,15 @@ class Player extends Component {
       game.updateGame();
   
       document.addEventListener("keydown", (event) => {
-        if (event.key === "ArrowLeft") {
-          game.player.speed = -4;
-        }
-  
-        if (event.key === "ArrowRight") {
-          game.player.speed = 4;
+        if (event.code === "ArrowLeft") {
+          game.player.speedX = -3;
+        } else if (event.code === "ArrowRight") {
+          game.player.speedX = 3;
         }
       });
-  
+    
       document.addEventListener("keyup", () => {
-        game.player.speed = 0;
+        game.player.speedX = 0;
       });
     }
   };
