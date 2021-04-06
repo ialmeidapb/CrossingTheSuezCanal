@@ -53,15 +53,6 @@ class Component {
     updatePosition() {
       this.x += this.speedX;
   
-      if (this.x <= 40) {   //limites do canal
-        this.x = 40;
-      }
-  
-      if (this.x >= canvas.width-90) {
-        this.x = canvas.width - 90;
-      }
-  
-      this.y += this.speedY;
     }
   
     left() {
@@ -168,7 +159,7 @@ class Component {
       this.checkGameWin();
     };
   
-    updateSand = () => {
+    updateSand = () => {    // bancos de areia
       this.frames2++;
   
       this.sand.map((sand) => {
@@ -178,11 +169,11 @@ class Component {
         sand.draw();
       });
   
-      if (this.frames2 % 67 === 0) {
+      if (this.frames2 % 300 === 0) {
         let y = 0;
   
-        let minX = 0;
-        let maxX = canvas.width - 20;
+        let minX = 160;
+        let maxX = canvas.width - 200;
         let x = Math.floor(Math.random() * (maxX - minX + 1) + minX);
   
         const sand = new SandBank(x, y, 20, 20);
@@ -191,7 +182,7 @@ class Component {
       }
     };
   
-    updateOil = () => {
+    updateOil = () => {           // barris de oleo
       this.frames++;
   
       this.oil.map((oil) => {
@@ -199,11 +190,11 @@ class Component {
         oil.draw();
       });
   
-      if (this.frames % 80 === 0) {
+      if (this.frames % 350 === 0) {    // a cada 190 frames aparece um barril
         let y = 0;
   
-        let minX = 200;
-        let maxX = canvas.width - 30;
+        let minX = 170;
+        let maxX = canvas.width - 190;
         let x = Math.floor(Math.random() * (maxX - minX + 1) + minX);
   
         const oil = new OilBarrel(x, y, 10, 20);
@@ -243,7 +234,7 @@ class Component {
         hitAudio.play();
   
   
-        if (this.collection.length < 10) {
+        if (this.collection.length < 10) {      // para deixar o count com 2 digitos
           count.innerText = "0" + this.collection.length;
         } else {
           count.innerText = this.collection.length;
@@ -252,7 +243,7 @@ class Component {
     };
   
     checkGameWin = () => {
-      if (this.collection.length === 25) {
+      if (this.collection.length === 10) {   //verifica a qntidade de barris coletados
         hitAudio.play();
         cancelAnimationFrame(this.animationId);
         win.style.display = "block";
@@ -267,12 +258,12 @@ class Player extends Component {
     move() {
       this.x += this.speedX;
   
-      if (this.x <= 40) {
-        this.x = 40;
+      if (this.x <= 150) {
+        this.x = 150;
       }
   
-      if (this.x >= canvas.width - 80) {
-        this.x = canvas.width - 80;
+      if (this.x >= canvas.width - 240) {   // delimita os limites do canal
+        this.x = canvas.width - 240;
       }
       this.y += this.speedY;
     }
@@ -280,7 +271,7 @@ class Player extends Component {
     draw() {
       ctx.imageSmoothingQuality = "high";
       ctx.imageSmoothingEnabled = true;
-      ctx.drawImage(caracter, this.x, this.y, 40, 180);
+      ctx.drawImage(caracter, this.x+20, this.y-50, 40, 180);
     }
   }
   

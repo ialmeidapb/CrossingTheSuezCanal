@@ -78,20 +78,22 @@ background-repeat: no-repeat;
   }
   
   #win a {
-    font-family: "Open Sans", sans-serif;
-    font-size: 10px;
+    font-family: 'Press Start 2P', cursive;
+    margin-top: 10px;
+    font-size: 30px;
     color: white;
     text-decoration: none;
+    text-shadow: 5px 5px navy;
     display: flex;
     justify-content: center;
   }
   
   #win img {
-    height: 400px;
+    height: 450px;
   }
   
   #board button {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Press Start 2P', cursive;
     height: 30px;
     width: 60px;
     text-decoration: none;
@@ -102,23 +104,10 @@ background-repeat: no-repeat;
   
   
   
-  .vaccin {
-    position: absolute;
-    top: 7%;
-    left: 50%;
-    height: 30px;
-  }
-  
-  #months {
-    position: absolute;
-    top: 7%;
-    left: 50%;
-    margin-left: -120px;
-  }
-  
   .counter {
     position: absolute;
     top: 10%;
     left: 50%;
     margin-left: 20px;
   }
+
