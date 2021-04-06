@@ -207,40 +207,6 @@ class Component {
   
         hitAudio.play();
   
-        switch (this.collection.length) {
-          case 3:
-            months.innerText = "1/11";
-            break;
-          case 5:
-            months.innerText = "2/11";
-            break;
-          case 7:
-            months.innerText = "3/11";
-            break;
-          case 9:
-            months.innerText = "4/11";
-            break;
-          case 11:
-            months.innerText = "5/11";
-            break;
-          case 13:
-            months.innerText = "6/11";
-            break;
-          case 15:
-            months.innerText = "7/11";
-            break;
-          case 17:
-            months.innerText = "8/11";
-            break;
-          case 19:
-            months.innerText = "9/11";
-            break;
-          case 21:
-            months.innerText = "10/11";
-            break;
-          case 23:
-            months.innerText = "END";
-        }
   
         if (this.collection.length < 10) {
           count.innerText = "0" + this.collection.length;
