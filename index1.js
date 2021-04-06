@@ -103,13 +103,16 @@ class Component {
       this.y %= canvas.height;
     }
   
-    
+    draw() {    // funcao para o rolamento do cenario
+      ctx.drawImage(canvasBackground, 0, this.y, this.width, this.height);
+      ctx.drawImage(canvasBackground, 0, this.y - canvas.height+10, this.width, this.height);
+    }
   }
   
 
   class SandBank extends Component {
     move() {
-      this.y += this.speed;
+      this.y += this.speedY;
     }
   
     draw() {
@@ -119,7 +122,7 @@ class Component {
 
   class OilBarrel extends Component {
     move() {
-      this.y += this.speed;
+      this.y += this.speedY;
     }
   
     draw() {
@@ -128,7 +131,7 @@ class Component {
   }
 
   class Game {
-    constructor(player) {
+    constructor(player, BackgroundImg) {
       this.player = player;
       this.animationId;
       this.frames = 0;
@@ -136,22 +139,21 @@ class Component {
       this.sand = [];
       this.oil = [];
       this.collection = [];
+      this.BackgroundImg = BackgroundImg;
     }
   
     updateGame = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "#0099ff";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(
-        canvasBackground,
-        0,
-        0,
-        canvasBackground.width,
-        canvasBackground.height
-      );
-  
+      
+      this.BackgroundImg.updatePosition()
+      this.BackgroundImg.draw()
+
       this.player.move();
       this.player.draw();
+
+    
   
       this.updateSand();
   
@@ -170,6 +172,8 @@ class Component {
       this.frames2++;
   
       this.sand.map((sand) => {
+        console.log(sand.speedY)
+        
         sand.move();
         sand.draw();
       });
@@ -181,8 +185,8 @@ class Component {
         let maxX = canvas.width - 20;
         let x = Math.floor(Math.random() * (maxX - minX + 1) + minX);
   
-        const sand = new Sand(x, y, 20, 20, 3);
-  
+        const sand = new SandBank(x, y, 20, 20);
+        sand.speedY++;
         this.sand.push(sand);
       }
     };
@@ -202,8 +206,8 @@ class Component {
         let maxX = canvas.width - 30;
         let x = Math.floor(Math.random() * (maxX - minX + 1) + minX);
   
-        const oil = new Oil(x, y, 10, 20, 3);
-  
+        const oil = new OilBarrel(x, y, 10, 20);
+        oil.speedY++;  // incrementa velocidade no eixo y
         this.oil.push(oil);
       }
     };
@@ -276,7 +280,7 @@ class Player extends Component {
     draw() {
       ctx.imageSmoothingQuality = "high";
       ctx.imageSmoothingEnabled = true;
-      ctx.drawImage(caracter, 220, 410, 40, 180);
+      ctx.drawImage(caracter, this.x, this.y, 40, 180);
     }
   }
   
@@ -288,7 +292,9 @@ class Player extends Component {
     };
   
   
-    function startGame(caracter) {
+  };
+
+   function startGame(caracter) {
       intro.style.display = "none";
       board.style.display = "block";
   
@@ -299,12 +305,16 @@ class Player extends Component {
           80,
           137,
           0
-        )
+        ),
+
+        new BackgroundImage(0,0,canvas.width,canvas.height)
+      
       );
   
       game.updateGame();
   
       document.addEventListener("keydown", (event) => {
+        console.log(game)
         if (event.code === "ArrowLeft") {
           game.player.speedX = -3;
         } else if (event.code === "ArrowRight") {
@@ -313,7 +323,7 @@ class Player extends Component {
       });
     
       document.addEventListener("keyup", () => {
+    
         game.player.speedX = 0;
       });
     }
-  };
