@@ -93,8 +93,8 @@ class Component {
   }
 
   class BackgroundImage extends Component {
-    constructor(x, y, width, height, img) {
-      super(x, y, width, height, img);
+    constructor(x, y, width, height) {
+      super(x, y, width, height);
       this.speedY = 3;
     }
   
@@ -103,13 +103,9 @@ class Component {
       this.y %= canvas.height;
     }
   
-    draw() {
-      ctx.drawImage(this.img, 0, this.y, this.width, this.height);
-      ctx.drawImage(this.img, 0, this.y - canvas.height, this.width, this.height);
-    }
+    
   }
   
-
 
   class SandBank extends Component {
     move() {
