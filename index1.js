@@ -37,7 +37,13 @@ const hitAudio = new Audio();
 hitAudio.src = "/assets/audio/audio_hit.mp3";
 hitAudio.volume = 0.2;
 
+const winAudio = new Audio();
+winAudio.src = "./assets/audio/audio_win.mp3";
+winAudio.volume = 0.2;
 
+const crashSound = new Audio();
+crashSound.src="./assets/audio/total-fail.mp3";
+crashSound.volume= 0.2;
 
 class Component {
     constructor(x, y, width, height) {
@@ -96,7 +102,7 @@ class Component {
   
     draw() {    // funcao para o rolamento do cenario
       ctx.drawImage(canvasBackground, 0, this.y, this.width, this.height);
-      ctx.drawImage(canvasBackground, 0, this.y - canvas.height+10, this.width, this.height);
+      ctx.drawImage(canvasBackground, 0, this.y - canvas.height+5, this.width, this.height);
     }
   }
   
@@ -107,7 +113,7 @@ class Component {
     }
   
     draw() {
-      ctx.drawImage(sandImg, this.x, this.y, 35, 35);
+      ctx.drawImage(sandImg, this.x, this.y, 20, 20);
     }
   }
 
@@ -169,14 +175,14 @@ class Component {
         sand.draw();
       });
   
-      if (this.frames2 % 300 === 0) {
+      if (this.frames2 % 280 === 0) {
         let y = 0;
   
         let minX = 160;
         let maxX = canvas.width - 200;
         let x = Math.floor(Math.random() * (maxX - minX + 1) + minX);
   
-        const sand = new SandBank(x, y, 20, 20);
+        const sand = new SandBank(x, y, 10, 10);
         sand.speedY++;
         this.sand.push(sand);
       }
@@ -203,10 +209,11 @@ class Component {
       }
     };
   
-    checkGameOver = () => {
+    checkGameOver = () => {            // checar GAME OVER! COLISAO COM BANCO DE AREIA!
       const crashed = this.sand.some((sand) => {
         return this.player.isCrashedWith(sand);
-      });
+      }); 
+      
   
       if (crashed) {
         crashSound.play();
@@ -244,7 +251,7 @@ class Component {
   
     checkGameWin = () => {
       if (this.collection.length === 10) {   //verifica a qntidade de barris coletados
-        hitAudio.play();
+        winAudio.play()
         cancelAnimationFrame(this.animationId);
         win.style.display = "block";
         board.style.display = "none";
