@@ -236,9 +236,10 @@ class Component {
   
         if (collided) {
           this.collection.push(actualOil);
+          hitAudio.play();
         }
   
-        hitAudio.play();
+        
   
   
         if (this.collection.length < 10) {      // para deixar o count com 2 digitos
