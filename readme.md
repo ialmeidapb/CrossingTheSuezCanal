@@ -1,7 +1,7 @@
 # Crossing the Suez Canal - The Game
 
 Crossing the Suez Canal - The Game is a game built in HTML, CSS, canvas and JavaScript. Only for academic and training purposes!
-[CLICK HERE TO PLAY!!](www.facebook.com)
+[CLICK HERE TO PLAY!!](https://ialmeidapb.github.io/CrossingTheSuezCanal/)
 # INSTRUCTIONS
 
 -   Click START button to play!  \o/
