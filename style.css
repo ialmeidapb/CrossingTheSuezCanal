@@ -37,7 +37,7 @@ background-repeat: no-repeat;
 
   #canvas {
     position: absolute;
-    top: 10%;
+    top: 14%;
     left: 55%;
     margin-left: -300px;
   }
@@ -48,6 +48,7 @@ background-repeat: no-repeat;
     font-size: 20px;
     color: white;
     text-decoration: none;
+    text-shadow: 5px 5px rgb(59, 7, 204);
     display: flex;
     justify-content: center;
     margin-top: 5px;
@@ -56,6 +57,7 @@ background-repeat: no-repeat;
   
   #game-over a:hover {
     color: rgb(59, 7, 204);
+    text-shadow: 5px 5px white;
   }
 
   #game-over {
@@ -84,9 +86,14 @@ background-repeat: no-repeat;
     font-size: 30px;
     color: white;
     text-decoration: none;
-    text-shadow: 5px 5px navy;
+    text-shadow: 5px 5px rgb(59, 7, 204);
     display: flex;
     justify-content: center;
+  }
+
+  #win a:hover{
+    color: rgb(59, 7, 204);
+    text-shadow: 5px 5px white;
   }
   
   #win img {
@@ -108,8 +115,21 @@ background-repeat: no-repeat;
   .counter {
     position: absolute;
     top: 05%;
-    left: 47.5%;
+    left: 58%;
     margin-left: 19px;
     font-size: larger;
+    color: tomato;
+    background-color: lightcyan;
+    
   }
 
+  .buttons h1{
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    top: 06%;
+    left: 37%;
+    margin-left: 19px;
+    font-size: medium;
+    color: navy;
+    text-shadow: 2px 3px lightcyan;
+  }
