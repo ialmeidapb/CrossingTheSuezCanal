@@ -20,6 +20,7 @@ background-repeat: no-repeat;
     left: 50%;
     margin-left: -250px;
     height: 500px;
+    top:10%
   }
 
 
@@ -28,7 +29,7 @@ background-repeat: no-repeat;
     position: absolute;
     left: 47%;
     margin-left: -52px;
-    top: 75%;
+    top: 80%;
     height: 100px;
     transition: 0.2s ease-in-out;
   }
@@ -36,7 +37,7 @@ background-repeat: no-repeat;
 
   #canvas {
     position: absolute;
-    top: 15%;
+    top: 10%;
     left: 55%;
     margin-left: -300px;
   }
@@ -72,7 +73,7 @@ background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    top: 10%;
+    top: 15%;
     left: 50%;
     margin-left: -200px;
   }
@@ -106,8 +107,9 @@ background-repeat: no-repeat;
   
   .counter {
     position: absolute;
-    top: 10%;
-    left: 50%;
+    top: 05%;
+    left: 47.5%;
     margin-left: 19px;
+    font-size: larger;
   }
 
