@@ -92,7 +92,7 @@ class Component {
   class BackgroundImage extends Component {
     constructor(x, y, width, height) {
       super(x, y, width, height);
-      this.speedY = 3;
+      this.speedY = 2;
     }
   
     updatePosition() {
@@ -183,7 +183,7 @@ class Component {
         let x = Math.floor(Math.random() * (maxX - minX + 1) + minX);
   
         const sand = new SandBank(x, y, 10, 10);
-        sand.speedY++;
+        sand.speedY=3;
         this.sand.push(sand);
       }
     };
@@ -204,7 +204,7 @@ class Component {
         let x = Math.floor(Math.random() * (maxX - minX + 1) + minX);
   
         const oil = new OilBarrel(x, y, 10, 20);
-        oil.speedY++;  // incrementa velocidade no eixo y
+        oil.speedY=3;  // incrementa velocidade no eixo y
         this.oil.push(oil);
       }
     };
