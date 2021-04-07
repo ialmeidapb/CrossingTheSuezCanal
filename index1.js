@@ -34,7 +34,7 @@ startAudio.src = "./assets/audio/5boat.wav";
 startAudio.volume = 0.2;
 
 const hitAudio = new Audio();
-hitAudio.src = "/assets/audio/audio_hit.mp3";
+hitAudio.src = "./assets/audio/audio_hit.mp3";
 hitAudio.volume = 0.2;
 
 const winAudio = new Audio();
