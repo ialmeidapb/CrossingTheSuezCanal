@@ -104,7 +104,7 @@ class Component {
   
     draw() {    // funcao para o rolamento do cenario
       ctx.drawImage(canvasBackground, 0, this.y, this.width, this.height);
-      ctx.drawImage(canvasBackground, 0, this.y - canvas.height+5, this.width, this.height);
+      ctx.drawImage(canvasBackground, 0, this.y - canvas.height+1, this.width, this.height);
     }
   }
   
