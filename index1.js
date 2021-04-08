@@ -115,7 +115,7 @@ class Component {
     }
   
     draw() {
-      ctx.drawImage(sandImg, this.x, this.y, 20, 20);
+      ctx.drawImage(sandImg, this.x, this.y, 25, 25);
     }
   }
 
@@ -180,11 +180,11 @@ class Component {
       if (this.frames2 % 280 === 0) {
         let y = 0;
   
-        let minX = 160;
+        let minX = 185;
         let maxX = canvas.width - 200;
         let x = Math.floor(Math.random() * (maxX - minX + 1) + minX);
   
-        const sand = new SandBank(x, y, 10, 10);
+        const sand = new SandBank(x, y, 13, 13);
         sand.speedY=3;
         this.sand.push(sand);
       }
@@ -201,7 +201,7 @@ class Component {
       if (this.frames % 350 === 0) {    // a cada 190 frames aparece um barril
         let y = 0;
   
-        let minX = 170;
+        let minX = 190;
         let maxX = canvas.width - 190;
         let x = Math.floor(Math.random() * (maxX - minX + 1) + minX);
   
@@ -270,12 +270,12 @@ class Player extends Component {
     move() {
       this.x += this.speedX;
   
-      if (this.x <= 150) {
-        this.x = 150;
+      if (this.x <= 175) {
+        this.x = 175;
       }
   
-      if (this.x >= canvas.width - 240) {   // delimita os limites do canal
-        this.x = canvas.width - 240;
+      if (this.x >= canvas.width - 225) {   // delimita os limites do canal
+        this.x = canvas.width - 225;
       }
       this.y += this.speedY;
     }
