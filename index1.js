@@ -25,13 +25,11 @@ oilImg.src = "./assets/images/barril-oil.png";
 
 
 
-const overAudio = new Audio();
-overAudio.src = "./assets/audio/total-fail.mp3";
-overAudio.volume = 0.2;
+
 
 const startAudio = new Audio();
 startAudio.src = "./assets/audio/5boat.wav";
-startAudio.volume = 0.2;
+startAudio.volume = 0.4;
 
 const hitAudio = new Audio();
 hitAudio.src = "./assets/audio/audio_hit.mp3";
@@ -44,6 +42,10 @@ winAudio.volume = 0.2;
 const crashSound = new Audio();
 crashSound.src="./assets/audio/total-fail.mp3";
 crashSound.volume= 0.2;
+
+const music = new Audio()
+music.src = "./assets/audio/music.mp3"
+music.volume= 0.1;
 
 class Component {
     constructor(x, y, width, height) {
@@ -216,6 +218,7 @@ class Component {
       
   
       if (crashed) {
+        music.pause();
         crashSound.play();
         cancelAnimationFrame(this.animationId);
   
@@ -252,6 +255,7 @@ class Component {
   
     checkGameWin = () => {
       if (this.collection.length === 10) {   //verifica a qntidade de barris coletados
+        music.pause()
         winAudio.play()
         cancelAnimationFrame(this.animationId);
         win.style.display = "block";
@@ -288,6 +292,7 @@ class Player extends Component {
     document.getElementById("play").onclick = () => {
     startAudio.play();
       startGame(Player);
+    music.play();  
     };
   
   
